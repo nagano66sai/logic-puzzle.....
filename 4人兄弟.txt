@@ -1,0 +1,32 @@
+REM  十進basicを使っています。!以降は注釈。&から&までは行継続。
+REM   四人の兄弟がいる。
+REM  護「明は長男ではありません。」
+REM  明「博は長男ではありません。」
+REM  博「昭雄は長男ではありません。」
+REM  昭雄「博は四男ではありません。」
+REM  みな兄に関しては嘘をいい、弟に関しては嘘の場合も本当の場合もありえます。
+REM   四人の兄弟の順をいってください。
+FOR   e=1  TO   4    !護の順
+   FOR    f=1  TO  4      !明の順
+      FOR    g=1  TO  4    !博の順
+         FOR   h=1  TO  4    !昭雄の順
+          
+            IF  e<>f AND  e<>g  AND  e<>h  AND  f<>g AND  f<>h  AND  g<>h  AND  &
+&    ((e>f  AND f=1) OR ((e<f AND  f<>1) OR (e<f AND  f=1))) AND  & !護の発言内容をコード化。
+&     ((f>g  AND g=1) OR ((f<g AND  g<>1) OR (f<g AND  g=1)))  AND &  !明の発言内容をコード化。
+&  ( (g>h  AND  h=1)  OR  ((g<h  AND  h=1) OR (g<h  AND  h<>1)))  AND &  !博の発言内容をコード化。
+& ((h>g  AND  g=4)  OR ((h<g  AND  g=4) OR  (h<g  AND  g<>4)))  THEN &  !昭雄の発言内容をコード化。
+&     PRINT  e;f;g;h   !　　解を出力
+             
+             
+             
+             
+         NEXT H
+      NEXT G
+   NEXT F
+NEXT E
+END
+
+
+
+
